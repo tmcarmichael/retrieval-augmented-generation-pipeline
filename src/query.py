@@ -1,5 +1,6 @@
 from retrieval import get_relevant_docs
 
+# Show relevant chunks selected
 if __name__ == "__main__":
     retrieval_questions = [
        "What are examples of dynamically typed functional languages?",
@@ -9,4 +10,4 @@ if __name__ == "__main__":
     for question in retrieval_questions:
       docs = get_relevant_docs(question, k=1)
       print("Query question: ", question)
-      print("Query result (relevant chunk): ", docs, "\n\n")
+      print("Query result (relevant chunk): ", docs, "\n")

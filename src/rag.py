@@ -3,7 +3,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from retrieval import get_relevant_docs
 
 DB_HOST = os.getenv("DATABASE_HOST", "localhost")
-DB_NAME = os.getenv("DATABASE_NAME", "rag_poc_db")
+DB_NAME = os.getenv("DATABASE_NAME", "rag_pg_db")
 DB_USER = os.getenv("DATABASE_USER", "postgres")
 DB_PASS = os.getenv("DATABASE_PASSWORD", "postgres")
 
@@ -18,12 +18,14 @@ def generate_answer(query, docs):
     outputs = gen_model.generate(
         **inputs,
         temperature=0.6,
+        do_sample=True,
         max_new_tokens=80,
         num_beams=4,
         early_stopping=True
     )
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
+# Perform RAG
 if __name__ == "__main__":
     rag_questions = [
     "What are examples of dynamically typed functional languages?",

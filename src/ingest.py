@@ -3,7 +3,7 @@ import psycopg2
 from sentence_transformers import SentenceTransformer
 
 DB_HOST = os.getenv("DATABASE_HOST", "localhost")
-DB_NAME = os.getenv("DATABASE_NAME", "rag_poc_db")
+DB_NAME = os.getenv("DATABASE_NAME", "rag_pg_db")
 DB_USER = os.getenv("DATABASE_USER", "postgres")
 DB_PASS = os.getenv("DATABASE_PASSWORD", "postgres")
 
