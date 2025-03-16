@@ -33,6 +33,6 @@ if __name__ == "__main__":
     for question in rag_questions:
       docs = get_relevant_docs(question, k=1)
       answer = generate_answer(question, docs)
-      print("\n\nQuery question: ", question)
+      print("\nQuery question: ", question)
       # print("Retrieved Docs:", docs, "\n\n") # optional see doc selections
       print("RAG answer: ", answer)
