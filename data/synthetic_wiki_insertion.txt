@@ -1,0 +1,5 @@
+"Dynamically typed functional programming languages, such as Lisp, would soon emerge as a result."
+
+"Immutability in functional programming ensures data structues are not modified after creation, allowing for referential transparency."
+
+"This structural sharing allows pure functional data structures to avoid exponential memory growth by reusing unchanged portions of the data."

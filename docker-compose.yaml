@@ -1,0 +1,28 @@
+services:
+  db:
+    image: ankane/pgvector
+    container_name: rag_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rag_poc_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: rag_app
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    # tty: true
+    environment:
+      DATABASE_HOST: db
+      DATABASE_NAME: rag_poc_db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+volumes:
+  pgdata:
