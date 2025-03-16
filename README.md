@@ -1,10 +1,6 @@
 # Retrieval Augmented Generation POC
 
-[Retrieval Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) Dockerized for POC. Synthetic text is injected into a Wikipedia article for testing retrieval and RAG.
-
-Chunking and embedding with [SentenceTransformers](https://sbert.net/), and stores text in a Postgres & [pgvector vector DB](https://github.com/pgvector/pgvector). Queries the modified content via similarity search. Verifies synthetic insertions are actually retrieved and returned.
-
-Finally, we feed the returned chunks to a small pretrained LLM, [huggingface google/flan-t5-small](https://huggingface.co/google/flan-t5-small), for RAG queries. 'flan-t5-small' is chosen as it can [run on CPU without significant hardware requirements](https://huggingface.co/google/flan-t5-small#running-the-model-on-a-cpu) for POC, however, APIs or GPU LLMs can be used for improved augmented generation.
+Dockerized [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) pipeline testing retrieval of synthetic text injected into a Wikipedia article. Processes text with chunking and embedding [SentenceTransformers](https://sbert.net/), storing it in [Postgres](https://github.com/postgres/postgres) & [pgvector](https://github.com/pgvector/pgvector) for [similarity search](https://en.wikipedia.org/wiki/Similarity_search). Retrieves modified content and verifies synthetic insertions are returned. Feeds retrieved chunks into [huggingface google/flan-t5-small](https://huggingface.co/google/flan-t5-small) for query generation. `flan-t5-small` was chosen for [CPU support and efficiency in POC](https://huggingface.co/google/flan-t5-small#running-the-model-on-a-cpu). LLM APIs or GPU LLMs could further enhance augmented generation.
 
 ---
 
