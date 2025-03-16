@@ -1,6 +1,6 @@
 # Retrieval Augmented Generation POC
 
-Quick proof of concept for [Retrieval Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), Dockerized for any OS/env. Synthetic text is injected into a Wikipedia article for testing retrieval and RAG.
+[Retrieval Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) Dockerized for POC. Synthetic text is injected into a Wikipedia article for testing retrieval and RAG.
 
 Chunking and embedding with [SentenceTransformers](https://sbert.net/), and stores text in a Postgres & [pgvector vector DB](https://github.com/pgvector/pgvector). Queries the modified content via similarity search. Verifies synthetic insertions are actually retrieved and returned.
 
